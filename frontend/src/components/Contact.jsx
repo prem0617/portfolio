@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Send, User, MessageSquare } from "lucide-react";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
 import { Link } from "react-router";
+import axios from "axios";
 
 const followMeOn = [
   {
@@ -28,6 +29,8 @@ const Contact = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -363,6 +366,17 @@ const Contact = () => {
                 >
                   <p className="text-green-700 dark:text-green-300 text-center">
                     Thank you for your message! I'll get back to you soon.
+                  </p>
+                </motion.div>
+              )}
+              {isError && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mt-4 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-reg-800 rounded-lg transition-colors duration-300"
+                >
+                  <p className="text-red-700 dark:text-red-300 text-center">
+                    {errorMessage}
                   </p>
                 </motion.div>
               )}

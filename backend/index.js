@@ -1,7 +1,11 @@
 import express from "express";
 import cors from "cors";
 import nodemailer from "nodemailer";
+import dotenv from "dotenv";
+dotenv.config();
 
+const GMAIL_PASS = process.env.GMAIL_PASS;
+console.log(GMAIL_PASS);
 const app = express();
 const PORT = 8080;
 
@@ -14,7 +18,7 @@ const sendEmail = async (email, message, name) => {
       service: "gmail",
       auth: {
         user: "poojanpatel2121@gmail.com",
-        pass: "eoreksfymuidupfp",
+        pass: GMAIL_PASS,
       },
     });
 

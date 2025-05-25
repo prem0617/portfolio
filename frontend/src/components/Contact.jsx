@@ -47,7 +47,7 @@ const Contact = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8080/getMessage",
+        "https://portfolio-xo8y.onrender.com/getMessage",
         formData
       );
       console.log(response.data);

@@ -103,7 +103,7 @@ const Navbar = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                Prem Patel
+                <Link to={"/"}>Prem Patel</Link>
               </motion.h1>
             </motion.div>
 
